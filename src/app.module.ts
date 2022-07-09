@@ -6,7 +6,6 @@ import { SendgridModule } from './assignment1/sendgrid.module';
 import { CalculatorTaxModule } from './assignment3/calculator-tex.module';
 import { ContactListModule } from './assignment2/contact-list.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TypeOrmConfigService } from './config/typeorm.config';
 
 @Module({
   imports: [
@@ -14,7 +13,7 @@ import { TypeOrmConfigService } from './config/typeorm.config';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRES_HOST,
-      port: 5432,
+      port: parseInt(process.env.POSTGRES_PORT),
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
